@@ -1,0 +1,10 @@
+{
+  "name": "Go Kit Example1",
+  "description": "go-kit basic example",
+  "keywords": [
+    "go-kit",
+    "go"
+  ],
+  "website": "http://github.com/heroku-examples/go-kit-ex1",
+  "repository": "http://github.com/heroku-examples/go-kit-ex1"
+}
