@@ -1,15 +1,22 @@
 pipeline {
+        agent any
         stages{
-               stage 'Checkout' {
-                     git url: 'https://github.com/noydhiet/golang.git'
+               stage('Checkout') {
+                     steps{
+                        git url: 'https://github.com/noydhiet/golang.git'
+                     }
                }
-               stage 'preTest' {
-                     go version
-                     go get -u github.com/noydhiet/golang.git
-                     dep init
+               stage('preTest') {
+                      steps{
+                        go version
+                        go get -u github.com/noydhiet/golang.git
+                        dep init
+                      }
                }
-               stage 'Build'{
-                     go build
+               stage('Build'){
+                      steps{
+                        go build
+                      }                     
                }
         }
 }
