@@ -1,22 +1,15 @@
-node {
-        stage 'Checkout'
-        
-        git url: 'https://github.com/grugrut/golang-ci-jenkins-pipeline.git'
-        
-        stage 'preTest'
-        sh 'go version'
-        sh 'go get -u github.com/noydhiet/golang.git
-        sh 'dep init'
-            
-        stage 'Test'
-        sh 'go vet'
-        sh 'go test -cover'
-            
-        stage 'Build'
-        sh 'go build .'
-            
-        stage 'Deploy'
-        // Do nothing.
+pipeline {
+        stages{
+               stage 'Checkout' {
+                     git url: 'https://github.com/noydhiet/golang.git'
+               }
+               stage 'preTest' {
+                     go version
+                     go get -u github.com/noydhiet/golang.git
+                     dep init
+               }
+               stage 'Build'{
+                     go build
+               }
         }
-    }
 }
